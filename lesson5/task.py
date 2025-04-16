@@ -1,0 +1,5 @@
+f = lambda act, a, b: compile(f"res = {a} {act} {b}", '', 'exec')
+exec(f("*", '4', "3"))
+print(res)
+exec(f("/", '4', "3"))
+print(res)
