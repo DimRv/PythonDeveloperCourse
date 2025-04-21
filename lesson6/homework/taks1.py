@@ -33,21 +33,26 @@ def show_catalog():
 
 
 def get_good(good_id):
+    """Возвращаем данные о товаре по его id"""
     for item in goods:
         if item['id'] == good_id:
             return item
 
 
-def add_goods():
-    """Добавляем товар в корзину"""
+def get_id():
     while 1:
         show_line()
         good_id = input("Введите id товара для покупки:\n")
         if good_id.isdigit():
             good_id = int(good_id)
-            break
+            return good_id
         else:
             print("Ошибка при вводе id товара")
+
+
+def add_goods():
+    """Добавляем товар в корзину"""
+    good_id = get_id()
     if shopping:
         for item in shopping:
             if good_id == item["id"]:
