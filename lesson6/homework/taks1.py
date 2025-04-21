@@ -40,19 +40,24 @@ def get_good(good_id):
 
 
 def get_id():
+    """Получаем id от пользователя"""
     while 1:
         show_line()
-        good_id = input("Введите id товара для покупки:\n")
+        good_id = input("Введите id товара для покупки или -1 для выхода:\n")
         if good_id.isdigit():
             good_id = int(good_id)
-            return good_id
-        else:
-            print("Ошибка при вводе id товара")
+            if get_good(good_id):
+                return good_id
+        if good_id == '-1':
+            return
+        print("Такого товара у нас нет в каталоге")
 
 
 def add_goods():
     """Добавляем товар в корзину"""
     good_id = get_id()
+    if not good_id:
+        return
     if shopping:
         for item in shopping:
             if good_id == item["id"]:
@@ -66,6 +71,7 @@ def add_goods():
 
 
 def show_shopping():
+    """Отображаем товары в корзине"""
     show_line()
     total_price = 0
     if shopping:
