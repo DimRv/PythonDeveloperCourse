@@ -58,7 +58,7 @@ from random import randint
 file = None
 
 try:
-    file = open('test.txt','w')
+    file = open('test.txt', 'w')
     # content = file.readlines()
 except FileNotFoundError:
     print("Файл не существует")

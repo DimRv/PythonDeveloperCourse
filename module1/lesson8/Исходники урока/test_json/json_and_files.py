@@ -25,7 +25,7 @@ shop["cars"].append({
 
 # Чтение данных из Json файла
 
-with open("cars.json","r") as file:
+with open("cars.json", "r") as file:
     #Получили словарь на основе файла с json данными
     cars_dict = json.load(file)
     pprint(cars_dict)
